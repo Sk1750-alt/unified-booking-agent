@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unified Booking Agent - MCP-powered multi-platform accommodation search">
+    <title>Booking Agent - Hackathon Demo</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fas fa-hotel"></i></div>
+                    <div class="logo-text">
+                        <h1>Unified Booking Agent</h1>
+                        <span class="tagline">MCP-POWERED | MULTI-PLATFORM SEARCH</span>
+                    </div>
+                </div>
+                <div class="header-badge">
+                    <i class="fas fa-plug" style="color: #10b981;"></i>
+                    3 Platforms Connected
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <main class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome message -->
+                <div class="message bot-message">
+                    <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                    <div class="message-content">
+                        <div class="message-bubble">
+                            <p class="welcome-title">Welcome to the Unified Booking Agent!</p>
+                            <p>I can help you find the perfect accommodation by searching across multiple platforms.
+                                Just tell me what you're looking for in natural language!</p>
+
+                            <div class="example-queries">
+                                <p><strong>Try asking:</strong></p>
+                                <button class="example-btn" onclick="useExample(this)">Find me the cheapest hotel in Goa
+                                    for 2 guests</button>
+                                <button class="example-btn" onclick="useExample(this)">I need a highly rated place in
+                                    Mumbai under Rs.8000/night</button>
+                                <button class="example-btn" onclick="useExample(this)">Looking for a beach house with
+                                    free cancellation in Kerala</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-spinner"></div>
+                <p>Searching across platforms...</p>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="input-area">
+            <form class="input-form" onsubmit="sendMessage(event)">
+                <input type="text" id="userInput"
+                    placeholder="Describe what kind of accommodation you're looking for..." autocomplete="off">
+                <button type="submit" id="sendBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </form>
+            <p class="footer-text">Powered by MCP Protocol | Backpackers' Bytes Hackathon 2026</p>
+        </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,627 @@
+{
+    "mock_airbnb": [
+        {
+            "id": "air_001",
+            "platform": "MockAirbnb",
+            "property_name": "Cozy Beach Villa",
+            "location": "Goa, India",
+            "price_per_night": 6200,
+            "currency": "INR",
+            "rating": 4.8,
+            "reviews_count": 245,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_001",
+            "amenities": [
+                "wifi",
+                "pool",
+                "beach_access",
+                "ac"
+            ],
+            "property_type": "villa",
+            "guests_max": 6
+        },
+        {
+            "id": "air_002",
+            "platform": "MockAirbnb",
+            "property_name": "Modern Mumbai Apartment",
+            "location": "Mumbai, India",
+            "price_per_night": 7900,
+            "currency": "INR",
+            "rating": 4.5,
+            "reviews_count": 180,
+            "cancellation_policy": "moderate",
+            "url": "https://mock-airbnb.com/listing/air_002",
+            "amenities": [
+                "wifi",
+                "gym",
+                "ac",
+                "parking"
+            ],
+            "property_type": "apartment",
+            "guests_max": 4
+        },
+        {
+            "id": "air_003",
+            "platform": "MockAirbnb",
+            "property_name": "Heritage Haveli Stay",
+            "location": "Jaipur, India",
+            "price_per_night": 9900,
+            "currency": "INR",
+            "rating": 4.9,
+            "reviews_count": 312,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_003",
+            "amenities": [
+                "wifi",
+                "breakfast",
+                "heritage_tour",
+                "ac"
+            ],
+            "property_type": "heritage",
+            "guests_max": 8
+        },
+        {
+            "id": "air_004",
+            "platform": "MockAirbnb",
+            "property_name": "Backpackers Hostel Goa",
+            "location": "Goa, India",
+            "price_per_night": 1500,
+            "currency": "INR",
+            "rating": 4.2,
+            "reviews_count": 520,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_004",
+            "amenities": [
+                "wifi",
+                "shared_kitchen",
+                "lounge"
+            ],
+            "property_type": "hostel",
+            "guests_max": 2
+        },
+        {
+            "id": "air_005",
+            "platform": "MockAirbnb",
+            "property_name": "Luxury Penthouse Delhi",
+            "location": "Delhi, India",
+            "price_per_night": 20800,
+            "currency": "INR",
+            "rating": 4.95,
+            "reviews_count": 89,
+            "cancellation_policy": "strict",
+            "url": "https://mock-airbnb.com/listing/air_005",
+            "amenities": [
+                "wifi",
+                "pool",
+                "gym",
+                "concierge",
+                "spa"
+            ],
+            "property_type": "penthouse",
+            "guests_max": 6
+        },
+        {
+            "id": "air_006",
+            "platform": "MockAirbnb",
+            "property_name": "Himalayan Mountain Retreat",
+            "location": "Manali, India",
+            "price_per_night": 7000,
+            "currency": "INR",
+            "rating": 4.7,
+            "reviews_count": 156,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_006",
+            "amenities": [
+                "wifi",
+                "fireplace",
+                "mountain_view",
+                "breakfast"
+            ],
+            "property_type": "cottage",
+            "guests_max": 4
+        },
+        {
+            "id": "air_007",
+            "platform": "MockAirbnb",
+            "property_name": "French Colony Studio",
+            "location": "Pondicherry, India",
+            "price_per_night": 4500,
+            "currency": "INR",
+            "rating": 4.6,
+            "reviews_count": 203,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_007",
+            "amenities": [
+                "wifi",
+                "ac",
+                "beach_nearby"
+            ],
+            "property_type": "studio",
+            "guests_max": 2
+        },
+        {
+            "id": "air_008",
+            "platform": "MockAirbnb",
+            "property_name": "Houseboat Experience",
+            "location": "Kerala, India",
+            "price_per_night": 12500,
+            "currency": "INR",
+            "rating": 4.85,
+            "reviews_count": 278,
+            "cancellation_policy": "moderate",
+            "url": "https://mock-airbnb.com/listing/air_008",
+            "amenities": [
+                "meals_included",
+                "ac",
+                "private_deck"
+            ],
+            "property_type": "houseboat",
+            "guests_max": 4
+        },
+        {
+            "id": "air_009",
+            "platform": "MockAirbnb",
+            "property_name": "Budget Room Kolkata",
+            "location": "Kolkata, India",
+            "price_per_night": 2500,
+            "currency": "INR",
+            "rating": 4.0,
+            "reviews_count": 145,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_009",
+            "amenities": [
+                "wifi",
+                "ac",
+                "breakfast"
+            ],
+            "property_type": "private_room",
+            "guests_max": 2
+        },
+        {
+            "id": "air_010",
+            "platform": "MockAirbnb",
+            "property_name": "Beachfront Bungalow",
+            "location": "Goa, India",
+            "price_per_night": 10800,
+            "currency": "INR",
+            "rating": 4.75,
+            "reviews_count": 189,
+            "cancellation_policy": "moderate",
+            "url": "https://mock-airbnb.com/listing/air_010",
+            "amenities": [
+                "wifi",
+                "beach_access",
+                "ac",
+                "kitchen"
+            ],
+            "property_type": "bungalow",
+            "guests_max": 5
+        },
+        {
+            "id": "air_011",
+            "platform": "MockAirbnb",
+            "property_name": "Lake View Palace",
+            "location": "Udaipur, India",
+            "price_per_night": 11500,
+            "currency": "INR",
+            "rating": 4.88,
+            "reviews_count": 267,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_011",
+            "amenities": [
+                "wifi",
+                "lake_view",
+                "rooftop_dining",
+                "ac",
+                "heritage_decor"
+            ],
+            "property_type": "heritage_villa",
+            "guests_max": 6
+        },
+        {
+            "id": "air_012",
+            "platform": "MockAirbnb",
+            "property_name": "Shimla Pine Cottage",
+            "location": "Shimla, India",
+            "price_per_night": 5500,
+            "currency": "INR",
+            "rating": 4.55,
+            "reviews_count": 198,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_012",
+            "amenities": [
+                "wifi",
+                "fireplace",
+                "mountain_view",
+                "parking"
+            ],
+            "property_type": "cottage",
+            "guests_max": 4
+        },
+        {
+            "id": "air_013",
+            "platform": "MockAirbnb",
+            "property_name": "Tech Park Serviced Apartment",
+            "location": "Bangalore, India",
+            "price_per_night": 6800,
+            "currency": "INR",
+            "rating": 4.35,
+            "reviews_count": 312,
+            "cancellation_policy": "moderate",
+            "url": "https://mock-airbnb.com/listing/air_013",
+            "amenities": [
+                "wifi",
+                "workspace",
+                "gym",
+                "ac",
+                "kitchen"
+            ],
+            "property_type": "serviced_apartment",
+            "guests_max": 3
+        },
+        {
+            "id": "air_014",
+            "platform": "MockAirbnb",
+            "property_name": "Marina Beach Studio",
+            "location": "Chennai, India",
+            "price_per_night": 3800,
+            "currency": "INR",
+            "rating": 4.25,
+            "reviews_count": 156,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_014",
+            "amenities": [
+                "wifi",
+                "ac",
+                "beach_nearby",
+                "kitchen"
+            ],
+            "property_type": "studio",
+            "guests_max": 2
+        },
+        {
+            "id": "air_015",
+            "platform": "MockAirbnb",
+            "property_name": "Hitech City Loft",
+            "location": "Hyderabad, India",
+            "price_per_night": 5200,
+            "currency": "INR",
+            "rating": 4.45,
+            "reviews_count": 223,
+            "cancellation_policy": "flexible",
+            "url": "https://mock-airbnb.com/listing/air_015",
+            "amenities": [
+                "wifi",
+                "workspace",
+                "ac",
+                "gym",
+                "parking"
+            ],
+            "property_type": "loft",
+            "guests_max": 4
+        }
+    ],
+    "mock_booking": [
+        {
+            "id": "bk_001",
+            "platform": "MockBooking",
+            "property_name": "Grand Hyatt Goa",
+            "location": "Goa, India",
+            "price_per_night": 15000,
+            "currency": "INR",
+            "rating": 4.7,
+            "reviews_count": 1250,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_001",
+            "amenities": [
+                "wifi",
+                "pool",
+                "spa",
+                "restaurant",
+                "gym"
+            ],
+            "property_type": "hotel",
+            "guests_max": 4,
+            "star_rating": 5
+        },
+        {
+            "id": "bk_002",
+            "platform": "MockBooking",
+            "property_name": "Taj Palace Mumbai",
+            "location": "Mumbai, India",
+            "price_per_night": 18500,
+            "currency": "INR",
+            "rating": 4.85,
+            "reviews_count": 2100,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_002",
+            "amenities": [
+                "wifi",
+                "pool",
+                "spa",
+                "restaurant",
+                "concierge"
+            ],
+            "property_type": "hotel",
+            "guests_max": 4,
+            "star_rating": 5
+        },
+        {
+            "id": "bk_003",
+            "platform": "MockBooking",
+            "property_name": "Budget Inn Goa",
+            "location": "Goa, India",
+            "price_per_night": 2900,
+            "currency": "INR",
+            "rating": 3.8,
+            "reviews_count": 450,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_003",
+            "amenities": [
+                "wifi",
+                "ac",
+                "parking"
+            ],
+            "property_type": "hotel",
+            "guests_max": 2,
+            "star_rating": 2
+        },
+        {
+            "id": "bk_004",
+            "platform": "MockBooking",
+            "property_name": "ITC Maurya Delhi",
+            "location": "Delhi, India",
+            "price_per_night": 16200,
+            "currency": "INR",
+            "rating": 4.6,
+            "reviews_count": 1800,
+            "cancellation_policy": "non_refundable",
+            "url": "https://mock-booking.com/listing/bk_004",
+            "amenities": [
+                "wifi",
+                "pool",
+                "spa",
+                "restaurant",
+                "gym"
+            ],
+            "property_type": "hotel",
+            "guests_max": 4,
+            "star_rating": 5
+        },
+        {
+            "id": "bk_005",
+            "platform": "MockBooking",
+            "property_name": "Zostel Jaipur",
+            "location": "Jaipur, India",
+            "price_per_night": 1200,
+            "currency": "INR",
+            "rating": 4.3,
+            "reviews_count": 890,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_005",
+            "amenities": [
+                "wifi",
+                "lounge",
+                "events"
+            ],
+            "property_type": "hostel",
+            "guests_max": 2,
+            "star_rating": 2
+        },
+        {
+            "id": "bk_006",
+            "platform": "MockBooking",
+            "property_name": "Le Pondy Resort",
+            "location": "Pondicherry, India",
+            "price_per_night": 7100,
+            "currency": "INR",
+            "rating": 4.4,
+            "reviews_count": 320,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_006",
+            "amenities": [
+                "wifi",
+                "pool",
+                "restaurant",
+                "beach_nearby"
+            ],
+            "property_type": "resort",
+            "guests_max": 4,
+            "star_rating": 4
+        },
+        {
+            "id": "bk_007",
+            "platform": "MockBooking",
+            "property_name": "Treebo Trend Mumbai",
+            "location": "Mumbai, India",
+            "price_per_night": 3700,
+            "currency": "INR",
+            "rating": 4.1,
+            "reviews_count": 560,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_007",
+            "amenities": [
+                "wifi",
+                "ac",
+                "breakfast"
+            ],
+            "property_type": "hotel",
+            "guests_max": 3,
+            "star_rating": 3
+        },
+        {
+            "id": "bk_008",
+            "platform": "MockBooking",
+            "property_name": "The Oberoi Kerala",
+            "location": "Kerala, India",
+            "price_per_night": 23300,
+            "currency": "INR",
+            "rating": 4.9,
+            "reviews_count": 950,
+            "cancellation_policy": "moderate",
+            "url": "https://mock-booking.com/listing/bk_008",
+            "amenities": [
+                "wifi",
+                "pool",
+                "spa",
+                "ayurveda",
+                "restaurant"
+            ],
+            "property_type": "resort",
+            "guests_max": 4,
+            "star_rating": 5
+        },
+        {
+            "id": "bk_009",
+            "platform": "MockBooking",
+            "property_name": "OYO Rooms Kolkata",
+            "location": "Kolkata, India",
+            "price_per_night": 2300,
+            "currency": "INR",
+            "rating": 3.9,
+            "reviews_count": 720,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_009",
+            "amenities": [
+                "wifi",
+                "ac",
+                "tv"
+            ],
+            "property_type": "hotel",
+            "guests_max": 2,
+            "star_rating": 2
+        },
+        {
+            "id": "bk_010",
+            "platform": "MockBooking",
+            "property_name": "Snow Peak Lodge",
+            "location": "Manali, India",
+            "price_per_night": 7900,
+            "currency": "INR",
+            "rating": 4.5,
+            "reviews_count": 280,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_010",
+            "amenities": [
+                "wifi",
+                "fireplace",
+                "restaurant",
+                "mountain_view"
+            ],
+            "property_type": "lodge",
+            "guests_max": 4,
+            "star_rating": 4
+        },
+        {
+            "id": "bk_011",
+            "platform": "MockBooking",
+            "property_name": "The Leela Palace Udaipur",
+            "location": "Udaipur, India",
+            "price_per_night": 28000,
+            "currency": "INR",
+            "rating": 4.92,
+            "reviews_count": 1450,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_011",
+            "amenities": [
+                "wifi",
+                "pool",
+                "spa",
+                "lake_view",
+                "fine_dining",
+                "butler_service"
+            ],
+            "property_type": "palace_hotel",
+            "guests_max": 4,
+            "star_rating": 5
+        },
+        {
+            "id": "bk_012",
+            "platform": "MockBooking",
+            "property_name": "Clarkes Shimla",
+            "location": "Shimla, India",
+            "price_per_night": 8500,
+            "currency": "INR",
+            "rating": 4.3,
+            "reviews_count": 680,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_012",
+            "amenities": [
+                "wifi",
+                "restaurant",
+                "heritage_building",
+                "valley_view"
+            ],
+            "property_type": "heritage_hotel",
+            "guests_max": 3,
+            "star_rating": 4
+        },
+        {
+            "id": "bk_013",
+            "platform": "MockBooking",
+            "property_name": "JW Marriott Bangalore",
+            "location": "Bangalore, India",
+            "price_per_night": 14500,
+            "currency": "INR",
+            "rating": 4.65,
+            "reviews_count": 1890,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_013",
+            "amenities": [
+                "wifi",
+                "pool",
+                "spa",
+                "gym",
+                "business_center",
+                "restaurant"
+            ],
+            "property_type": "hotel",
+            "guests_max": 4,
+            "star_rating": 5
+        },
+        {
+            "id": "bk_014",
+            "platform": "MockBooking",
+            "property_name": "Radisson Blu Chennai",
+            "location": "Chennai, India",
+            "price_per_night": 9800,
+            "currency": "INR",
+            "rating": 4.4,
+            "reviews_count": 1120,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_014",
+            "amenities": [
+                "wifi",
+                "pool",
+                "gym",
+                "restaurant",
+                "airport_shuttle"
+            ],
+            "property_type": "hotel",
+            "guests_max": 4,
+            "star_rating": 5
+        },
+        {
+            "id": "bk_015",
+            "platform": "MockBooking",
+            "property_name": "Novotel Hyderabad",
+            "location": "Hyderabad, India",
+            "price_per_night": 7200,
+            "currency": "INR",
+            "rating": 4.35,
+            "reviews_count": 920,
+            "cancellation_policy": "free_cancellation",
+            "url": "https://mock-booking.com/listing/bk_015",
+            "amenities": [
+                "wifi",
+                "pool",
+                "gym",
+                "restaurant",
+                "business_center"
+            ],
+            "property_type": "hotel",
+            "guests_max": 4,
+            "star_rating": 4
+        }
+    ]
+}

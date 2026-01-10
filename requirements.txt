@@ -1,0 +1,22 @@
+# ============================================
+# Unified Booking Agent - Dependencies
+# ============================================
+# Install: pip install -r requirements.txt
+# ============================================
+
+# Core Framework
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic>=2.0.0
+
+# Utilities
+python-dateutil>=2.8.0
+httpx>=0.24.0
+
+# Testing (optional)
+pytest>=7.0.0
+
+# HTTP Client (for real API integration)
+requests>=2.31.0
+
+
