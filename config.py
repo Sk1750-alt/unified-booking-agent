@@ -7,6 +7,10 @@ and environment-specific customization.
 
 import os
 from typing import Optional
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # =============================================================================
 # APPLICATION SETTINGS
@@ -31,6 +35,10 @@ DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 # RapidAPI Configuration (for Booking.com integration)
 RAPIDAPI_KEY: Optional[str] = os.getenv("RAPIDAPI_KEY", None)
 RAPIDAPI_HOST = "booking-com15.p.rapidapi.com"
+
+# Gemini API Key (for LLM-powered chatbot)
+GEMINI_API_KEY: Optional[str] = os.getenv("GEMINI_API_KEY", None)
+
 
 # API Timeout Settings (in seconds)
 API_TIMEOUT = int(os.getenv("API_TIMEOUT", 10))
