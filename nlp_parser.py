@@ -3,8 +3,11 @@ Natural Language Query Parser
 Extracts structured parameters from user's natural language queries
 """
 import re
+import json
 from typing import Dict, Any, Optional, List
+import google.generativeai as genai
 from platforms.base import SearchQuery
+import config
 
 
 class NLPParser:
@@ -54,6 +57,20 @@ class NLPParser:
         "san francisco", "miami", "hawaii", "cancun", "ibiza"
     ]
     
+    def __init__(self):
+        self._gemini_ready = False
+        if getattr(config, "GEMINI_API_KEY", None):
+            try:
+                genai.configure(api_key=config.GEMINI_API_KEY)
+                self.model = genai.GenerativeModel(
+                    model_name="models/gemini-2.5-flash",
+                    generation_config={"response_mime_type": "application/json"}
+                )
+                self._gemini_ready = True
+                print("Gemini API initialized successfully for NLP Parser.")
+            except Exception as e:
+                print(f"Failed to initialize Gemini API parser: {e}")
+
     def parse(self, query: str) -> Dict[str, Any]:
         """
         Parse a natural language query and extract structured parameters
@@ -62,6 +79,49 @@ class NLPParser:
             Dict with keys: destination, guests, max_price, min_rating, 
                            cancellation_policy, selection_strategy
         """
+        if self._gemini_ready:
+            try:
+                prompt = f"""
+                Analyze the following travel booking query: "{query}"
+                
+                Extract structured travel parameters into a JSON object.
+                
+                Rules:
+                1. "destination": The target city/location. If not found, use "".
+                2. "guests": Number of guests (default is 2).
+                3. "max_price": Maximum price per night as a number. If not specified, set to null.
+                4. "min_rating": Minimum rating required as a number. Highly/best/top rated = 4.5, good/decent rating = 4.0. If not specified, set to null.
+                5. "cancellation_policy": Set to "flexible" if user requests flexible, free cancellation, refundable, cancel anytime. Otherwise null.
+                6. "selection_strategy": Choose one of:
+                   - "cheapest" (if budget, cheap, cheapest, lowest price)
+                   - "highest_rating" (if best rated, highest rated, top rated)
+                   - "flexible_cancellation" (if free/flexible cancellation is top priority)
+                   - "best_value" (default value, worth, balance)
+                7. "check_in": Extract target check-in date or period if mentioned, else null.
+                8. "check_out": Extract target check-out date if mentioned, else null.
+                
+                Return ONLY a JSON object with this structure:
+                {{
+                  "destination": "",
+                  "guests": 2,
+                  "max_price": null,
+                  "min_rating": null,
+                  "cancellation_policy": null,
+                  "selection_strategy": "best_value",
+                  "check_in": null,
+                  "check_out": null
+                }}
+                """
+                response = self.model.generate_content(prompt)
+                parsed = json.loads(response.text.strip())
+                # Ensure destination is capitalized
+                if parsed.get("destination"):
+                    parsed["destination"] = parsed["destination"].title()
+                return parsed
+            except Exception as e:
+                print(f"Gemini parsing failed, falling back to regex: {e}")
+
+        # Fallback to regex-based parsing
         query_lower = query.lower()
         
         result = {

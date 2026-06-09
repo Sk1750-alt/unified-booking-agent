@@ -11,6 +11,9 @@ from typing import Dict, Any, Optional, List
 
 from mcp_server import MCPServer
 from nlp_parser import NLPParser
+import google.generativeai as genai
+import config
+import json
 
 
 # Initialize FastAPI app
@@ -63,6 +66,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 async def root():
+    """Serve the landing page"""
+    return FileResponse("static/home.html")
+
+
+@app.get("/chat")
+async def chat_ui():
     """Serve the main chatbot interface"""
     return FileResponse("static/index.html")
 
@@ -206,12 +215,60 @@ async def chat(request: ChatRequest):
     explanation = select_result.result.get("explanation", {})
     
     # Build response message
-    if selected:
-        message = f"I found the perfect place for you!\n\n**{selected['property_name']}** in {selected['location']}\n\n"
-        message += f"Price: Rs.{selected['price_per_night']}/night  |  Rating: {selected['rating']} ({selected['reviews_count']} reviews)\n\n"
-        message += f"{explanation.get('message', '')}"
-    else:
-        message = "I couldn't find a suitable accommodation matching all your preferences."
+    gemini_used = False
+    if getattr(config, "GEMINI_API_KEY", None):
+        try:
+            genai.configure(api_key=config.GEMINI_API_KEY)
+            model = genai.GenerativeModel('models/gemini-2.5-flash')
+            
+            options_str = "\n".join([
+                f"- {opt.get('property_name')} ({opt.get('platform')}): Rs.{opt.get('price_per_night')}/night, {opt.get('rating')}★, {opt.get('reviews_count')} reviews, cancellation: {opt.get('cancellation_policy')}, amenities: {', '.join(opt.get('amenities', []))}"
+                for opt in sorted_listings[:5]
+            ])
+            
+            selected_str = ""
+            if selected:
+                selected_str = f"Selected Option: {selected.get('property_name')} ({selected.get('platform')}) - Rs.{selected.get('price_per_night')}/night, {selected.get('rating')}★, cancellation: {selected.get('cancellation_policy')}."
+            else:
+                selected_str = "No specific option could be selected."
+                
+            explanation_str = json.dumps(explanation)
+            
+            prompt = f"""
+            You are a friendly, expert travel booking assistant called "Unified Booking Agent".
+            The user asked: "{query}"
+            We ran searches across platforms and evaluated options.
+            
+            {selected_str}
+            
+            Here are the top options we evaluated:
+            {options_str}
+            
+            Explanation details:
+            {explanation_str}
+            
+            Task:
+            Write a warm, helpful, and concise response to the user.
+            1. Introduce the recommendation in a professional, natural way (or explain if no options matched).
+            2. Explain clearly why the selected option was chosen (mentioning price, rating, cancellation policy, and comparing platforms).
+            3. Briefly mention the next best alternative from the options list to show thoroughness and give them choices.
+            4. Keep the tone conversational, helpful, and concise. Use markdown formatting. Do not use generic placeholders.
+            """
+            
+            response = model.generate_content(prompt)
+            message = response.text.strip()
+            gemini_used = True
+        except Exception as e:
+            print(f"Failed to generate conversational explanation with Gemini: {e}")
+            gemini_used = False
+
+    if not gemini_used:
+        if selected:
+            message = f"I found the perfect place for you!\n\n**{selected['property_name']}** in {selected['location']}\n\n"
+            message += f"Price: Rs.{selected['price_per_night']}/night  |  Rating: {selected['rating']} ({selected['reviews_count']} reviews)\n\n"
+            message += f"{explanation.get('message', '')}"
+        else:
+            message = "I couldn't find a suitable accommodation matching all your preferences."
     
     return ChatResponse(
         success=True,

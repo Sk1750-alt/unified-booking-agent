@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report - Unified Booking Agent using MCP</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #6366f1;
+            --bg: #ffffff;
+            --text: #1f2937;
+            --light-bg: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--bg);
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            border-bottom: none;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background-color: var(--light-bg);
+        }
+
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                max-width: 100%;
+                padding: 0;
+            }
+
+            button {
+                display: none;
+            }
+
+            .no-print {
+                display: none;
+            }
+        }
+
+        .flow-container {
+            text-align: center;
+            font-weight: bold;
+            margin: 30px 0;
+        }
+
+        .flow-box {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            border-radius: 5px;
+            background: #eef2ff;
+        }
+
+        .arrow {
+            font-size: 20px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="window.print()"
+        style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer;"
+        class="no-print">
+        Print to PDF
+    </button>
+
+    <header>
+        <h1>Unified Booking Agent</h1>
+        <p class="subtitle">An Intelligent Multi-Platform Agent using Model Context Protocol (MCP)</p>
+        <div style="text-align: center; margin-bottom: 30px;">
+            <span class="badge">Problem Statement 3</span>
+            <span class="badge">Backpackers' Bytes Hackathon</span>
+            <span class="badge">2026</span>
+        </div>
+    </header>
+
+    <div class="section">
+        <h2>1. Executive Summary</h2>
+        <p>The <strong>Unified Booking Agent</strong> is a high-performance, agentic search system built to simplify the
+            fragmented travel booking ecosystem. By leveraging the <strong>Model Context Protocol (MCP)</strong>, it
+            provides a standardized interface to query multiple booking platforms (Real Booking.com API + Mock
+            Platforms) simultaneously. It parses natural language queries, normalizes diverse data sources into a single
+            schema, and uses an intelligent recommendation engine to select and explain the best options for the user.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>2. Problem Statement</h2>
+        <p>Today's travel search is scattered across Booking.com, Airbnb, and various other sites. Users must manually
+            compare prices, cancellation policies, and ratings across tabs. AI assistants often lack structured tools to
+            interact with these platforms reliably. Our goal was to build a single, intelligent agent that abstracts
+            these platforms behind a unified protocol (MCP).</p>
+    </div>
+
+    <div class="section">
+        <h2>3. Technical Stack (The "Why")</h2>
+        <table>
+            <tr>
+                <th>Technology</th>
+                <th>Usage</th>
+                <th>Reason for Choice</th>
+            </tr>
+            <tr>
+                <td><strong>Python 3.12</strong></td>
+                <td>Core Language</td>
+                <td>First-class support for MCP, rich NLP libraries, and fast development cycle.</td>
+            </tr>
+            <tr>
+                <td><strong>FastAPI</strong></td>
+                <td>Backend Framework</td>
+                <td>High performance (Async support), automatic OpenAPI documentation, and effortless Pydantic
+                    integration.</td>
+            </tr>
+            <tr>
+                <td><strong>Pydantic</strong></td>
+                <td>Data Validation</td>
+                <td>Ensures type-safe data normalization and automatic JSON validation for the unified
+                    <code>Listing</code> schema.</td>
+            </tr>
+            <tr>
+                <td><strong>MCP Protocol</strong></td>
+                <td>Tool Interface</td>
+                <td>Industry-standard for LLM-tool interaction, ensuring the agent can be used by any modern AI model.
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Uvicorn</strong></td>
+                <td>Web Server</td>
+                <td>Lightning-fast ASGI server that enables real-time hot-reloading for rapid iteration.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>4. System Architecture & Data Flow</h2>
+        <div class="flow-container">
+            <div class="flow-box">User Query</div>
+            <span class="arrow">➔</span>
+            <div class="flow-box">NLP Parser</div>
+            <span class="arrow">➔</span>
+            <div class="flow-box">MCP Server</div>
+            <br><br>
+            <span class="arrow">↴</span>
+            <div class="flow-box" style="background: #ecfdf5;">Platform Adapters (Search & Normalize)</div>
+            <span class="arrow">➔</span>
+            <div class="flow-box" style="background: #fffbeb;">Rec Engine (Rank & Select)</div>
+            <br><br>
+            <span class="arrow">➔</span>
+            <div class="flow-box">Unified JSON Response + Chat UI</div>
+        </div>
+        <p>The system is highly modular. The <strong>main.py</strong> receives user input, passes it to the
+            <strong>NLPParser</strong> for extraction, and then invokes the <strong>MCPServer</strong> tools. The server
+            reaches out to individual <strong>Platform Adapters</strong> which return data in a <strong>Normalized
+                Schema</strong>.</p>
+    </div>
+
+    <div class="section">
+        <h2>5. Intelligent NLP Mechanism</h2>
+        <p>Our NLP system uses sophisticated <strong>Regular Expressions (Regex)</strong> and keyword matching to
+            identify user intent without the latency of an LLM call.</p>
+        <ul>
+            <li><strong>Destination Extraction:</strong> Recognizes 100+ Indian cities and international hubs.</li>
+            <li><strong>Constraint Parsing:</strong> Identifies budget (e.g., "under Rs. 5000"), guest counts, and
+                dates.</li>
+            <li><strong>Strategy Inference:</strong> Dynamically switches between <i>Cheapest</i>, <i>Highest
+                    Rating</i>, <i>Best Value</i>, and <i>Flexible Cancellation</i> based on user keywords.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>6. File-wise Breakdown</h2>
+        <div class="card">
+            <h3>Backend Core</h3>
+            <ul>
+                <li><code>main.py</code>: The FastAPI "Brain" - connects the UI to the MCP tools.</li>
+                <li><code>mcp_server.py</code>: Implements the 4 MCP tools (Search, Details, Rank, Select).</li>
+                <li><code>nlp_parser.py</code>: The extraction engine using advanced Regex.</li>
+                <li><code>recommendation.py</code>: The logic layer that scores and explains results.</li>
+                <li><code>run.py</code>: Production-ready startup script.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Platform Adapters (Standardized Layer)</h3>
+            <ul>
+                <li><code>platforms/base.py</code>: Abstract base class + Unified <i>Listing</i> Schema.</li>
+                <li><code>platforms/mock_airbnb.py</code>: Simulated P2P rentals with global dynamic generation.</li>
+                <li><code>platforms/mock_booking.py</code>: Simulated hotel inventory.</li>
+                <li><code>platforms/booking_com.py</code>: Real-world integration via RapidAPI.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>Frontend (Premium UI)</h3>
+            <ul>
+                <li><code>static/index.html</code>: Glassmorphism chatbot structure.</li>
+                <li><code>static/styles.css</code>: Modern dark-theme styling + responsive design.</li>
+                <li><code>static/app.js</code>: Asynchronous interaction with the FastAPI backend.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>7. Intelligent Selection Logic</h2>
+        <p>The recommendation engine calculates a "Best" option using four unique strategies:</p>
+        <div class="card">
+            <strong>Best Value Score:</strong> <code>Rating / (Price / 1000)</code>
+            <p>This formula allows the agent to find the perfect middle ground between high quality and low costs, which
+                is the most common user preference.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>8. Explainability Features</h2>
+        <p>For every recommendation, the user receives a detailed explanation in plain English:</p>
+        <pre>
+- "Selected as the Cheapest option at ₹2,100/night."
+- "Evaluated 12 options across MockAirbnb, MockBooking, and Booking.com."
+- "Meets your requirement of 'Free Cancellation'."
+        </pre>
+    </div>
+
+    <div class="section">
+        <h2>9. Compliance Checklist (Problem Statement 3)</h2>
+        <table>
+            <tr>
+                <th>Requirement</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>MCP Server Implementation</td>
+                <td>✅ Fully Compliant (4 Tools)</td>
+            </tr>
+            <tr>
+                <td>Multi-Platform Abstraction</td>
+                <td>✅ Fully Compliant (3 Platforms)</td>
+            </tr>
+            <tr>
+                <td>Data Normalization</td>
+                <td>✅ Standardized schema implementation</td>
+            </tr>
+            <tr>
+                <td>Intelligent Selection</td>
+                <td>✅ 4 configurable strategies</td>
+            </tr>
+            <tr>
+                <td>Explainability</td>
+                <td>✅ Real-time reasoning generation</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer
+        style="margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-style: italic;">
+        End of Report - Backpackers' Bytes 2026 Submission
+    </footer>
+</body>
+
+</html>

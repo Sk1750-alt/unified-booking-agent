@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Booking Agent - Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        .slide {
+            min-height: 100vh;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            page-break-after: always;
+        }
+
+        .slide h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .slide h2 {
+            font-size: 2rem;
+            color: #818cf8;
+            margin-bottom: 30px;
+        }
+
+        .slide p,
+        .slide li {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        .slide ul {
+            margin-left: 40px;
+        }
+
+        .slide li {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .card {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid #6366f1;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            background: #1e293b;
+            color: #818cf8;
+        }
+
+        .flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .flow-item {
+            background: #1e293b;
+            padding: 15px 25px;
+            border-radius: 10px;
+            border: 1px solid #6366f1;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: #6366f1;
+        }
+
+        @media print {
+            .slide {
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SLIDE 1: Title -->
+    <div class="slide center">
+        <h1>🏨 Unified Booking Agent</h1>
+        <h2>Multi-Platform Accommodation Search using MCP</h2>
+        <p style="font-size: 1.2rem; margin-top: 40px; color: #64748b;">Problem Statement 3 | Backpackers' Bytes
+            Hackathon 2026</p>
+        <div style="margin-top: 50px;">
+            <span class="badge">MCP Protocol</span>
+            <span class="badge">Multi-Platform</span>
+            <span class="badge">AI-Powered</span>
+            <span class="badge">Explainable</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 2: Problem -->
+    <div class="slide">
+        <h1>The Problem</h1>
+        <h2>Travel Booking is Fragmented</h2>
+        <ul>
+            <li>Users open <span class="highlight">5+ tabs</span> (Booking.com, Airbnb, Agoda...)</li>
+            <li>Manual comparison is <span class="highlight">time-consuming</span></li>
+            <li>No unified view of all options</li>
+            <li>Hard to explain <span class="highlight">"why"</span> one option is best</li>
+        </ul>
+        <div class="card" style="margin-top: 40px;">
+            <p style="font-size: 1.2rem; text-align: center;">💡 What if there was a single agent that could search,
+                compare, and explain?</p>
+        </div>
+    </div>
+
+    <!-- SLIDE 3: Solution -->
+    <div class="slide">
+        <h1>Our Solution</h1>
+        <h2>One Agent, Multiple Platforms, Intelligent Recommendations</h2>
+        <div class="flow">
+            <div class="flow-item">User Query</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">NLP Parser</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">MCP Server</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Platform Adapters</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Recommendation</div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3 style="color: #10b981;">✅ Natural Language Input</h3>
+                <p>"Find cheapest hotel in Mumbai for 2 guests"</p>
+            </div>
+            <div class="card">
+                <h3 style="color: #10b981;">✅ Unified Response</h3>
+                <p>Best option + explanation + all options</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4: Features -->
+    <div class="slide">
+        <h1>Key Features</h1>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Implementation</th>
+            </tr>
+            <tr>
+                <td>MCP Server</td>
+                <td>4 tools: search, details, rank, select_best</td>
+            </tr>
+            <tr>
+                <td>Multi-Platform</td>
+                <td>3 platforms (1 real API + 2 mock)</td>
+            </tr>
+            <tr>
+                <td>Data Normalization</td>
+                <td>Unified Listing schema across all sources</td>
+            </tr>
+            <tr>
+                <td>Intelligent Selection</td>
+                <td>4 strategies: cheapest, rating, value, flexible</td>
+            </tr>
+            <tr>
+                <td>Explainability</td>
+                <td>Full reasoning for every recommendation</td>
+            </tr>
+            <tr>
+                <td>Pan-India Support</td>
+                <td>100+ Indian cities recognized</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- SLIDE 5: Architecture -->
+    <div class="slide">
+        <h1>Architecture</h1>
+        <div class="card">
+            <pre style="font-size: 1rem; line-height: 1.6; color: #10b981;">
+┌─────────────────────────────────────────────────────┐
+│                   Frontend (Chatbot UI)              │
+└─────────────────────────┬───────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────┐
+│              FastAPI Application (main.py)           │
+└─────────────────────────┬───────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────┐
+│               MCP Server (mcp_server.py)             │
+│  ┌─────────────┬─────────────┬─────────────────────┐ │
+│  │   search    │   rank      │    select_best      │ │
+│  └─────────────┴─────────────┴─────────────────────┘ │
+└─────────────────────────┬───────────────────────────┘
+                          │
+┌─────────────────────────▼───────────────────────────┐
+│              Platform Adapters                       │
+│  ┌───────────┐  ┌───────────┐  ┌─────────────────┐  │
+│  │ MockAirbnb│  │MockBooking│  │  Booking.com    │  │
+│  └───────────┘  └───────────┘  └─────────────────┘  │
+└─────────────────────────────────────────────────────┘
+        </pre>
+        </div>
+    </div>
+
+    <!-- SLIDE 6: Demo -->
+    <div class="slide center">
+        <h1>Live Demo</h1>
+        <h2>http://localhost:8000</h2>
+        <div style="margin-top: 50px;">
+            <p style="font-size: 1.5rem;">Example Queries:</p>
+            <div class="card" style="display: inline-block; margin: 10px;">
+                <p>"Find cheapest hotel in Goa"</p>
+            </div>
+            <div class="card" style="display: inline-block; margin: 10px;">
+                <p>"Best rated stay in Mumbai under Rs.8000"</p>
+            </div>
+            <div class="card" style="display: inline-block; margin: 10px;">
+                <p>"Flexible cancellation in Jaipur"</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SLIDE 7: Tech Stack -->
+    <div class="slide">
+        <h1>Tech Stack</h1>
+        <div class="grid">
+            <div class="card">
+                <h3 style="color: #818cf8;">Backend</h3>
+                <ul>
+                    <li>Python 3.12</li>
+                    <li>FastAPI</li>
+                    <li>Pydantic</li>
+                    <li>Uvicorn</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color: #818cf8;">Frontend</h3>
+                <ul>
+                    <li>HTML5 / CSS3</li>
+                    <li>Vanilla JavaScript</li>
+                    <li>Font Awesome Icons</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color: #818cf8;">API Integration</h3>
+                <ul>
+                    <li>Booking.com (RapidAPI)</li>
+                    <li>Mock Platforms</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3 style="color: #818cf8;">Protocol</h3>
+                <ul>
+                    <li>Model Context Protocol (MCP)</li>
+                    <li>RESTful API</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 9: Thank You -->
+    <div class="slide center">
+        <h1>Thank You!</h1>
+        <h2>Questions?</h2>
+        <div style="margin-top: 50px;">
+            <p style="font-size: 1.2rem; color: #64748b;">GitHub: github.com/Sk1750-alt/unified-booking-agent</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
